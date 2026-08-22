@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #090a0c;
+  color: #e5e7eb;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: #ff5b6f;
+  color: #170a0d;
+}
+
+.workspace-enter {
+  animation: workspace-enter 260ms ease both;
+}
+
+.upload-visual-3d {
+  display: block;
+  height: min(42vh, 300px);
+  min-height: 230px;
+  perspective: 860px;
+  position: relative;
+  width: min(92%, 320px);
+}
+
+.upload-card {
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+  display: flex;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform-style: preserve-3d;
+}
+
+.upload-card-back {
+  align-items: center;
+  background: #15161b;
+  gap: 10px;
+  height: 74px;
+  padding: 12px;
+  transform: translate3d(-78%, -72%, -58px) rotateX(58deg) rotateZ(-15deg);
+  width: 148px;
+}
+
+.upload-card-mid {
+  align-items: center;
+  background: #1a1b21;
+  flex-direction: column;
+  gap: 12px;
+  height: 124px;
+  justify-content: center;
+  transform: translate3d(-44%, -62%, 0) rotateX(58deg) rotateZ(-15deg);
+  width: 116px;
+}
+
+.upload-card-front {
+  align-items: center;
+  background: #131419;
+  gap: 10px;
+  height: 40px;
+  padding: 0 12px;
+  transform: translate3d(-36%, 42%, 58px) rotateX(58deg) rotateZ(-15deg);
+  width: 188px;
+}
+
+.upload-card-avatar {
+  background: #25272e;
+  border-radius: 999px;
+  height: 24px;
+  width: 24px;
+}
+
+.upload-card-lines {
+  display: grid;
+  flex: 1;
+  gap: 7px;
+}
+
+.upload-card-lines span,
+.upload-card-metrics span {
+  background: #30323a;
+  border-radius: 999px;
+  display: block;
+  height: 6px;
+}
+
+.upload-card-lines span:last-child {
+  width: 62%;
+}
+
+.upload-card-media {
+  align-items: center;
+  background: #101115;
+  color: #71717a;
+  display: flex;
+  height: 54px;
+  justify-content: center;
+  width: 66px;
+}
+
+.upload-card-metrics {
+  display: grid;
+  gap: 6px;
+  width: 76px;
+}
+
+.upload-orbit {
+  align-items: center;
+  animation: upload-orbit 6.4s linear infinite;
+  background: rgba(20, 21, 26, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.24);
+  color: #ff8c9a;
+  display: flex;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 18px;
+  font-weight: 800;
+  height: 38px;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 38px;
+  z-index: 2;
+}
+
+.upload-orbit-one {
+  animation-delay: -900ms;
+  transform-origin: -78px 18px;
+}
+
+.upload-orbit-two {
+  animation-delay: -2.4s;
+  color: #f5b86b;
+  transform-origin: 92px -28px;
+}
+
+.upload-orbit-three {
+  animation-delay: -4.1s;
+  color: #6fa8dc;
+  transform-origin: -40px -82px;
+}
+
+.upload-orbit-four {
+  animation-delay: -5.2s;
+  color: #8fbf9f;
+  transform-origin: 70px 74px;
+}
+
+.upload-signal-ring {
+  animation: upload-pulse-ring 2.8s ease-out infinite;
+  border: 1px solid rgba(255, 91, 111, 0.22);
+  border-radius: 999px;
+  height: 172px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateX(64deg) rotateZ(-15deg);
+  width: 260px;
+}
+
+.upload-signal-ring-two {
+  animation-delay: 1.35s;
+  border-color: rgba(111, 168, 220, 0.18);
+  height: 218px;
+  width: 318px;
+}
+
+.upload-card-metrics span:first-child {
+  background: rgba(255, 91, 111, 0.55);
+  width: 100%;
+}
+
+.upload-card-metrics span:nth-child(2) {
+  width: 74%;
+}
+
+.upload-card-metrics span:last-child {
+  width: 48%;
+}
+
+.upload-visual-3d .upload-card {
+  animation: upload-float 5.2s ease-in-out infinite;
+}
+
+.upload-visual-3d .upload-card-mid {
+  animation-delay: 160ms;
+}
+
+.upload-visual-3d .upload-card-front {
+  animation-delay: 320ms;
+}
+
+.upload-visual-3d.is-active .upload-card {
+  border-color: rgba(255, 91, 111, 0.28);
+  box-shadow: 0 22px 42px rgba(255, 91, 111, 0.12), 0 18px 34px rgba(0, 0, 0, 0.28);
+}
+
+.upload-visual-3d.is-active .upload-orbit {
+  animation-duration: 3.6s;
+  background: rgba(255, 91, 111, 0.12);
+}
+
+@keyframes workspace-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes upload-float {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -10px;
+  }
+}
+
+@keyframes upload-orbit {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes upload-pulse-ring {
+  0% {
+    opacity: 0;
+    scale: 0.72;
+  }
+  24% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    scale: 1.12;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-45%);
+    opacity: 0;
+  }
+  22% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(340%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+
+  .workspace-enter {
+    animation: none;
+  }
+
+  .upload-visual-3d .upload-card {
+    animation: none;
+  }
+
+  .upload-orbit,
+  .upload-signal-ring {
+    animation: none;
+  }
+}
