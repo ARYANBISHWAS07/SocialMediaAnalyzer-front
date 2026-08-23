@@ -23,7 +23,8 @@ cp .env.local.example .env.local
 Required variable:
 
 ```bash
-NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
+NEXT_PUBLIC_API_BASE_URL=http://3.6.187.53:8000
+NEXT_PUBLIC_OLLAMA_BASE_URL=http://13.201.129.111:11434
 ```
 
 ## Local Setup
@@ -53,7 +54,13 @@ http://localhost:3000
 Run the FastAPI backend before analyzing files. The frontend expects the backend at:
 
 ```text
-http://127.0.0.1:8000
+http://3.6.187.53:8000
+```
+
+Ollama is available at:
+
+```text
+http://13.201.129.111:11434
 ```
 
 The app uses:

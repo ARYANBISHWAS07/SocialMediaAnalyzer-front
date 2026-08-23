@@ -1,7 +1,8 @@
 import type { AnalyzeResponse, ApiErrorResponse, ChatRequest, ChatResponse } from "@/types/analysis";
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || process.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+const API_BASE_URL = "http://3.6.187.53:8000";
+
+console.info("Frontend API_BASE_URL:", API_BASE_URL);
 
 export async function analyzeFile(file: File): Promise<AnalyzeResponse> {
   const formData = new FormData();
@@ -10,6 +11,7 @@ export async function analyzeFile(file: File): Promise<AnalyzeResponse> {
   let response: Response;
 
   try {
+    console.info("Analyze API:", `${API_BASE_URL}/api/analyze`);
     response = await fetch(`${API_BASE_URL}/api/analyze`, {
       method: "POST",
       body: formData
@@ -29,6 +31,7 @@ export async function sendChatMessage(request: ChatRequest): Promise<ChatRespons
   let response: Response;
 
   try {
+    console.info("Chat API:", `${API_BASE_URL}/api/chat`);
     response = await fetch(`${API_BASE_URL}/api/chat`, {
       method: "POST",
       headers: {
