@@ -1,7 +1,6 @@
 import type { AnalyzeResponse, ApiErrorResponse, ChatRequest, ChatResponse } from "@/types/analysis";
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || process.env.VITE_API_BASE_URL || "http://3.6.187.53:8000";
+const API_BASE_URL ="http://localhost:8000";
 
 console.info("Frontend API_BASE_URL:", API_BASE_URL);
 
